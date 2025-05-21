@@ -20,3 +20,9 @@ async def get_all():
         data = await db_session.execute(query)
         
         return data.scalars().all()
+    
+async def delete_all():
+    async with session_maker() as db_session:
+        query = delete(TestModel)
+        await db_session.execute(query)
+        await db_session.commit()

@@ -27,6 +27,11 @@ async def new_test_data(message: Message):
         await message.answer(f"{text.data}, {text.created}")
 
 
+@router.message(F.text == "cls")
+async def new_test_data(message: Message):
+    await database.delete_all()
+    await message.answer("deleted all!")
+
 
 @router.message()
 async def new_test_data(message: Message):
