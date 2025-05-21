@@ -34,7 +34,9 @@ async def new_test_data(message: Message):
 
 @router.message()
 async def new_test_data(message: Message):
-    # await database.create_test(message.text)
+    print(1)
+    await database.create_test(message.text)
+    print(2)
     await message.answer(f"{message.text} added!")
 
 
