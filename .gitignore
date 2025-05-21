@@ -1,8 +1,8 @@
+__pycache__/
+
 vercel.json
 .env
-__pycache__
 .venv
 
-handlers/__pycache__
-database/__pycache__
+
 
