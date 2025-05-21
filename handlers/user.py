@@ -22,7 +22,6 @@ async def genarete_link(message: Message):
 @router.message(F.text == "all")
 async def new_test_data(message: Message):
     data = await database.get_all()
-
     for text in data:
         await message.answer(f"{text.data}, {text.created}")
 

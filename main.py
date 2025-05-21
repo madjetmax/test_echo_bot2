@@ -18,7 +18,7 @@ dp.include_routers(
 async def main():
 
     # db
-    # await engine.create_db()
+    await engine.create_db()
 
     print('bot launched')
     await dp.start_polling(bot,)
