@@ -7,7 +7,8 @@ from config import *
 base_time_zone = ZoneInfo(MODELS_TIME_ZONE)
 
 def now() -> datetime.datetime:
-    return datetime.datetime.now(base_time_zone)
+    time = datetime.datetime.now(base_time_zone)
+    return time
 
 class Base(DeclarativeBase):
     created: Mapped[DateTime] = mapped_column(DateTime(timezone=True), default=now)

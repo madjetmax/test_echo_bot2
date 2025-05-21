@@ -15,10 +15,6 @@ async def create_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-    async with engine.connect() as conn:
-        await conn.execute(text("SET TIME ZONE 'UTC';"))
-
-    
 async def drop_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
