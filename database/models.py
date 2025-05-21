@@ -10,8 +10,8 @@ def now() -> datetime.datetime:
     return datetime.datetime.now(base_time_zone)
 
 class Base(DeclarativeBase):
-    created: Mapped[DateTime] = mapped_column(DateTime(timezone=True), default=now())
-    updated: Mapped[DateTime] = mapped_column(DateTime(timezone=True), default=now(), onupdate=now())
+    created: Mapped[DateTime] = mapped_column(DateTime(timezone=True), default=now)
+    updated: Mapped[DateTime] = mapped_column(DateTime(timezone=True), default=now, onupdate=now)
 
 class TestModel(Base):
     __tablename__ = "test"
