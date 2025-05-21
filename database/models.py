@@ -1,13 +1,15 @@
-from sqlalchemy import DateTime, Float, String, Text, func
+from sqlalchemy import DateTime, Float, String, Text, func, Time
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from zoneinfo import ZoneInfo
 import datetime
 from config import *
+import pytz
 
-base_time_zone = ZoneInfo(MODELS_TIME_ZONE)
+base_time_zone = pytz.timezone(MODELS_TIME_ZONE)
 
 def now() -> datetime.datetime:
     time = datetime.datetime.now(base_time_zone)
+    print(time)
     return time
 
 class Base(DeclarativeBase):

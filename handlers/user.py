@@ -2,7 +2,10 @@ from aiogram import F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
 import database
+from config import *
 import datetime
+import pytz
+
 
 router = Router()
 
@@ -13,7 +16,7 @@ def get_expire_date(hours=0, minutes=0, seconds=0) -> datetime.timedelta:
 @router.message(Command(commands=["gen"]))
 async def genarete_link(message: Message):
     group_id = -1002618313177
-    expire_date = get_expire_date(minutes=1)
+    expire_date = get_expire_date(minutes=20)
     
     invite_link = await message.bot.create_chat_invite_link(group_id, expire_date=expire_date, member_limit=1)
     
@@ -32,11 +35,11 @@ async def new_test_data(message: Message):
     await message.answer("deleted all!")
 
 
-@router.message()
+@router.message(F.text)
 async def new_test_data(message: Message):
-    print(1)
-    await database.create_test(message.text)
-    print(2)
-    await message.answer(f"{message.text} added!")
+    # await database.create_test(message.text)
+
+    date = datetime.datetime.now(pytz.timezone(MODELS_TIME_ZONE))
+    await message.answer(str(date))
 
 
