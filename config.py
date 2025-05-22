@@ -20,4 +20,4 @@ DB_LOGGING = False
 
 
 # datetime
-MODELS_TIME_ZONE = "Europe/Kyiv"
+MODELS_TIME_ZONE = "Europe/Paris"

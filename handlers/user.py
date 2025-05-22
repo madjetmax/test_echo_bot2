@@ -5,7 +5,7 @@ import database
 from config import *
 import datetime
 import pytz
-
+from uuid import uuid4
 
 router = Router()
 
@@ -17,8 +17,9 @@ def get_expire_date(hours=0, minutes=0, seconds=0) -> datetime.timedelta:
 async def genarete_link(message: Message):
     group_id = -1002618313177
     expire_date = get_expire_date(minutes=20)
+    link_id = uuid4()
     
-    invite_link = await message.bot.create_chat_invite_link(group_id, expire_date=expire_date, member_limit=1)
+    invite_link = await message.bot.create_chat_invite_link(group_id, expire_date=expire_date, name=str(link_id), member_limit=1)
     
     await message.answer(invite_link.invite_link)
 

@@ -9,7 +9,6 @@ base_time_zone = pytz.timezone(MODELS_TIME_ZONE)
 
 def now() -> datetime.datetime:
     time = datetime.datetime.now(base_time_zone)
-    print(time)
     return time
 
 class Base(DeclarativeBase):
