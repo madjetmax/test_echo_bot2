@@ -4,7 +4,7 @@ from aiogram.types import Message
 
 from config import *
 import handlers
-from database import engine
+# from database import engine
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
