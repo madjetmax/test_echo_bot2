@@ -1,7 +1,7 @@
 from aiogram import F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
-import database
+# import database
 from config import *
 import datetime
 import pytz
@@ -25,14 +25,14 @@ async def genarete_link(message: Message):
 
 @router.message(F.text == "all")
 async def new_test_data(message: Message):
-    data = await database.get_all()
-    for text in data:
-        await message.answer(f"{text.data}, {text.created}")
-
+    # data = await database.get_all()
+    # for text in data:
+    #     await message.answer(f"{text.data}, {text.created}")
+    print(1)
 
 @router.message(F.text == "cls")
 async def new_test_data(message: Message):
-    await database.delete_all()
+    # await database.delete_all()
     await message.answer("deleted all!")
 
 
